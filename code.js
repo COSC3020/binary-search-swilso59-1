@@ -1,5 +1,10 @@
 function binarySearch(list, element) {
     
+    // Check if the list is empty and return -1 if it is. 
+    if (list.length < 1){
+        return -1;
+    }
+
     // Initialize left index at the start of the list.
     let leftInd = 0;
 
@@ -10,11 +15,16 @@ function binarySearch(list, element) {
     while (leftInd <= rightInd) {
         
         // Calculate the middle index.
-        const midInd = Math.floor((leftInd + rightInd) / 2);
+        midInd = Math.floor((leftInd + rightInd) / 2);
 
         // Check if the middle index element is equal to the target element.
         if (list[midInd] === element) {
             
+            // Checking for duplicate target elements in the list.
+            while (midInd > 0 && list[midInd - 1] === element){
+                midInd--;
+            }
+
             // If found, return the index of the element.
             return midInd;
         
@@ -40,10 +50,3 @@ function binarySearch(list, element) {
     // If the element is not found, return -1.
     return -1;
 }
-
-// For this function I used resourses from the internet. 
-// https://medium.com/@jeffrey.allen.lewis/javascript-algorithms-explained-binary-search-25064b896470
-// https://www.scaler.com/topics/binary-search-in-javascript/
-// https://www.geeksforgeeks.org/binary-search-in-javascript/
-// https://stackoverflow.com/questions/22697936/binary-search-in-javascript
-// I also recieved help from the TA. 
