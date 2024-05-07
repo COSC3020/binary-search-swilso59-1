@@ -50,3 +50,5 @@ function binarySearch(list, element) {
     // If the element is not found, return -1.
     return -1;
 }
+
+// I reviewed my repository from last semester. binary-search-swilso59 
